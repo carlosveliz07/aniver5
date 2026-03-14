@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felices 5 Meses ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* corazones */
+
+        .heart {
+            position: fixed;
+            bottom: -50px;
+            font-size: 20px;
+            animation: float 8s linear infinite;
+            color: #ff4d6d;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+
+            100% {
+                transform: translateY(-110vh) scale(1.5);
+            }
+        }
+
+        /* contenedor */
+
+        .container {
+            padding: 30px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        /* titulo */
+
+        h1 {
+            font-size: 36px;
+            margin-top: 20px;
+            animation: latido 2s infinite;
+        }
+
+        @keyframes latido {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* mensaje */
+
+        .mensaje {
+            margin-top: 25px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            border-radius: 15px;
+            font-size: 18px;
+            line-height: 1.7;
+            backdrop-filter: blur(10px);
+            text-align: justify;
+        }
+
+        @media (max-width:600px) {
+            .mensaje {
+                font-size: 16px;
+            }
+        }
+
+        /* carrusel */
+
+        .galeria {
+            margin-top: 35px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 1s ease;
+        }
+
+        .slider img {
+            width: 100%;
+            flex-shrink: 0;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+
+        /* indicadores */
+
+        .indicadores {
+            margin-top: 10px;
+        }
+
+        .punto {
+            height: 10px;
+            width: 10px;
+            background: white;
+            opacity: 0.4;
+            display: inline-block;
+            margin: 5px;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .punto.activo {
+            opacity: 1;
+            transform: scale(1.3);
+        }
+
+        /* BOTON PAUSA */
+
+        .pause-btn {
+            margin-top: 15px;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 10px;
+            background: #ff4d6d;
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .pause-btn:hover {
+            background: #ff1e4d;
+        }
+
+        /* reproductor */
+
+        .music {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .music-box {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            max-width: 350px;
+            width: 100%;
+        }
+
+        .music-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .music audio {
+            width: 100%;
+        }
+
+        /* boton sorpresa */
+
+        button {
+            margin-top: 30px;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 12px;
+            background: #ff4d6d;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff1e4d;
+            transform: scale(1.05);
+        }
+
+        /* sorpresa */
+
+        .sorpresa {
+            margin-top: 25px;
+            font-size: 18px;
+            line-height: 1.7;
+            display: none;
+            animation: aparecer 1s;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            color: #ffd6e0;
+            text-align: justify;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* footer */
+
+        footer {
+            margin-top: 40px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+
+        /* corazones */
+
+        function crearCorazon() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = Math.random() * 20 + 10 + "px";
+            heart.style.animationDuration = Math.random() * 5 + 5 + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        setInterval(crearCorazon, 500);
+
+    </script>
+
+    <div class="container">
+
+        <h1>❤️Feliz aniversario❤️</h1>
+
+        <div class="mensaje">
+
+            Mi amor ❤️,
+            <br>Hoy celebramos nuestros 5 meses juntos.
+            <br>Puede parecer poco tiempo, pero ha sido suficiente para compartir momentos muy bonitos a tu lado.
+            <br>Gracias por las risas, las conversaciones y por cada recuerdo que hemos ido creando.
+            <br>Espero que sigamos sumando más momentos juntos, paso a paso. ❤️🐻
+
+        </div>
+
+        <div class="galeria">
+
+            <div class="slider" id="slider">
+
+                <img src="./imagenes/Juntos.png">
+                <img src="./imagenes/002.jpeg">
+                <img src="./imagenes/003.jpeg">
+                <img src="./imagenes/0028.jpeg">
+                <img src="./imagenes/0029.jpeg">
+                <img src="./imagenes/0030.jpeg">
+                <img src="./imagenes/0038.jpeg">
+
+            </div>
+
+        </div>
+
+        <div class="indicadores" id="indicadores"></div>
+
+        <button class="pause-btn" onclick="toggleSlider()" id="pauseBtn">⏸ Pausar fotos</button>
+
+        <div class="music">
+
+            <div class="music-box">
+
+                <div class="music-title">Mi chica de las flores amarillas 🌻❤️</div>
+
+                <audio autoplay loop controls>
+                    <source src="./musica/Floricienta  Flores Amarillas [Letra].mp3" type="audio/mpeg">
+                </audio>
+
+            </div>
+
+        </div>
+
+        <button onclick="mostrar()">Presiona aquí ❤️</button>
+
+        <div class="sorpresa" id="sorpresa"></div>
+
+        <footer>
+            Osito te ama mucho ❤️🐻
+        </footer>
+
+    </div>
+
+    <script>
+
+        /* carrusel */
+
+        const slider = document.getElementById("slider");
+        const total = slider.children.length;
+        const indicadores = document.getElementById("indicadores");
+
+        let index = 0;
+        let intervalo;
+
+        for (let i = 0; i < total; i++) {
+
+            const punto = document.createElement("span");
+            punto.classList.add("punto");
+
+            if (i === 0) punto.classList.add("activo");
+
+            indicadores.appendChild(punto);
+
+        }
+
+        const puntos = document.querySelectorAll(".punto");
+
+        function mostrarSlide() {
+
+            slider.style.transform = `translateX(-${index * 100}%)`;
+
+            puntos.forEach(p => p.classList.remove("activo"));
+            puntos[index].classList.add("activo");
+
+        }
+
+        function iniciarSlider() {
+
+            intervalo = setInterval(() => {
+
+                index++;
+
+                if (index >= total) {
+                    index = 0;
+                }
+
+                mostrarSlide();
+
+            }, 4000);
+
+        }
+
+        iniciarSlider();
+
+        /* pausar y reanudar */
+
+        function toggleSlider() {
+
+            const btn = document.getElementById("pauseBtn");
+
+            if (intervalo) {
+
+                clearInterval(intervalo);
+                intervalo = null;
+                btn.innerText = "▶ Reanudar fotos";
+
+            } else {
+
+                iniciarSlider();
+                btn.innerText = "⏸ Pausar fotos";
+
+            }
+
+        }
+
+        /* efecto escribir */
+
+        const mensaje = `Gracias por estos 5 meses y por cada momento compartido.
+                    Me alegra poder tenerte en mi vida y compartir tiempo contigo.
+                    Con la bendición de Dios, espero que sigamos caminando juntos. ❤️🐻`;
+
+        let i = 0;
+
+        function mostrar() {
+
+            const caja = document.getElementById("sorpresa");
+
+            caja.style.display = "block";
+
+            if (i < mensaje.length) {
+
+                caja.innerHTML += mensaje.charAt(i);
+
+                i++;
+
+                setTimeout(mostrar, 40);
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
